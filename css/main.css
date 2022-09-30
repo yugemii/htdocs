@@ -3,6 +3,14 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+html {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% );
+}
+
+#font_style {
+    font-family: 'Gugi', cursive;
+}
+
 a {
     text-align : center;
     color : black;
@@ -19,23 +27,22 @@ header {
     width : auto;
     height : 100px;
     display : block;
-    border-bottom-style: solid;
+    border-bottom-style: double;
+    border-color : #ffffff;
     position : relative;
 }
 .site_name {
     text-align : center;
     padding : 30px 0;
 }
+.site_name > a {
+    font-family: 'Gugi', cursive;
+}
+
 .right-top {
     position : absolute;
-    right : 0;
-    top : 0;
-}
-.login {
-
-}
-.signup {
-
+    right : 20px;
+    top : 60px;
 }
 /* 본문 */
 #main {
@@ -47,10 +54,17 @@ header {
 
 .menu {
     height : inherit;
-    border-right-style: solid;
+    border-right-style: double;
+    border-color: #ffffff;
 }
 .menu>ul {
     padding-top:20px;
+}
+.menu>ul>li>h2 {
+    font-family: 'Gugi', cursive;
+}
+.menu>ul>li>a {
+    font-family: 'Gugi', cursive;
 }
 .board {
     margin : 50px;
@@ -61,5 +75,6 @@ footer {
     width : auto;
     height : 100px;
     display : block;
-    border-top-style: solid;
+    border-top-style: double;
+    border-color : #ffffff;
 }

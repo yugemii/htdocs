@@ -3,14 +3,16 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/login.css">
         <title>이유경의 웹 사이트</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <h1 class="site_name">이유경의 웹 사이트</h1>
+            <h1 class="site_name"><a href="index.html">이유경의 웹 사이트</a></h1>
         </header>
         <session id = "main">
             <nav class = "menu">
@@ -23,16 +25,18 @@
                 </ul>
             </nav>
             <div class = "board">
-                <h2>로그인 페이지</h2>
 
-                <form name="login">
-                <p>ID<input type="text" name="userid"></p>
-                <p>PW<input type="text" name="userpw"></p>
+                <h2 id="font_style">로그인</h2>
+
+                <form name="login" class="login">
+                <p id="font_style">ID<input type="text" name="userid"></p>
+                <p id="font_style">PW<input type="text" name="userpw"></p>
                 <div>
-                <input type="button" onclick="check(this.form)" value="Login">
-                <input type="reset" value="Cancel">
+                    <input type="button" onclick="check(this.form)" value="Login">
+                    <input type="reset" value="Cancel">
                 </div>
                 </form>
+
             </div>
                 
         </session>
