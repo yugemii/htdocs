@@ -1,7 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "990820", "web");//아주 나쁜 방법
 $sql = "
-INSERT INTO topics
+INSER INTO topics
 (title, description, created)
 VALUE (
     'MYSQL',
@@ -9,6 +9,8 @@ VALUE (
     NOW()
     )";
 mysqli_query($conn, $sql);
+
+echo mysqli_error($conn);
 
 
 ?>
