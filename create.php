@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <title>이유경의 웹 사이트</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -29,12 +29,13 @@
                 </ul>
             </nav>
             <div class = "board">
-                <pre>
-                안녕하세요. 이유경의 웹 사이트입니다.
-                
-                깃 허브 주소 :
-                티스토리 주소 :
-                </pre>
+                 <form action="process_create.php" method="POST">
+                    <p><input type="text" name="title" placeholder="title"></p>
+                    <p><textarea name="description" 
+                    placeholder="description"></textarea></p>
+                    <p><input type="submit"></p>
+
+                 </form>
             </div>
         </session>
 
