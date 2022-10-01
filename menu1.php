@@ -1,8 +1,18 @@
+<?php
+    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
+    $sql = "SELECT * FROM topics";
+    $result = mysqli_query($conn, $sql);
+    $list = '';
+    while($row = mysqli_fetch_array($result)) {
+        $list = $list."<li>{$row['titile']}</li>";
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <title>이유경의 웹 사이트</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -11,7 +21,7 @@
     </head>
     <body>
         <header>
-            <h1 class="site_name"><a href="#">환영해요, 보안의 숲</a></h1>
+            <h1 class="site_name"><a href="index.php">환영해요, 보안의 숲</a></h1>
             <div class="right-top">
                 <a href="login.html"><button class="login">로그인</button></a>
                 <a href="signup"><button class="signup" href="/signup.html">회원가입</button></a>
@@ -29,12 +39,10 @@
                 </ul>
             </nav>
             <div class = "board">
-                <pre>
-                안녕하세요. 이유경의 웹 사이트입니다.
-                
-                깃 허브 주소 :
-                티스토리 주소 :
-                </pre>
+                <ol>
+                    <?=$list?>
+                </ol>
+                <a href="create.php"><button>글쓰기</button></a>
             </div>
         </session>
 

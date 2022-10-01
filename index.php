@@ -11,7 +11,7 @@
     </head>
     <body>
         <header>
-            <h1 class="site_name"><a href="#">환영해요, 보안의 숲</a></h1>
+            <h1 class="site_name"><a href="index.php">환영해요, 보안의 숲</a></h1>
             <div class="right-top">
                 <a href="login.html"><button class="login">로그인</button></a>
                 <a href="signup"><button class="signup" href="/signup.html">회원가입</button></a>
@@ -34,7 +34,7 @@
                 
                 깃 허브 주소 :
                 티스토리 주소 :
-                <a href="create.php">글쓰기</a>
+                <a href="create.php"><button>글쓰기</button></a>
                 </pre>
             </div>
         </session>
