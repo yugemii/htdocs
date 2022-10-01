@@ -4,7 +4,8 @@
     $result = mysqli_query($conn, $sql);
     $list = '';
     while($row = mysqli_fetch_array($result)) {
-        $list = $list."<li>{$row['titile']}</li>";
+        $list = $list."<li><a href=\"menu1_description.php?id={$row['id']}\">{$row['title']}</a></li>";
+        //<li><a href=\"menu1.php?id=1\"></a></li>
 }
 
 ?>
