@@ -43,6 +43,7 @@
             </nav>
             <div class = "board">
                  <form action="process_update.php" method="POST">
+                    <input type ="hidden" name="id" value="<?=$_GET['id']?>">
                     <p><input type="text" name="title" placeholder="title" value="<?=$article['title']?>"></p>
                     <p><textarea name="description" 
                     placeholder="description" value="<?=$article['description']?>"></textarea></p>
