@@ -2,11 +2,7 @@
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     $sql = "SELECT * FROM topics";
     $result = mysqli_query($conn, $sql);
-    $list = '';
-    while($row = mysqli_fetch_array($result)) {
-        $list = $list."<li><a href=\"menu1_description.php?id={$row['id']}\">{$row['title']}</a></li>";
-        //<li><a href=\"menu1.php?id=1\"></a></li>
-}
+
     $sql = "SELECT * FROM topics WHERE id={$_GET['id']}";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -14,7 +10,6 @@
         'title'=>$row['title'],
         'description'=>$row['description']
     );
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,11 +42,12 @@
                 </ul>
             </nav>
             <div class = "board">
-                <h2><?=$article['title']?></h2>
-                <p><?=$article['description']?></p>
-                <a href="menu1.php"><button>목록</button></a>
-                <a href="update.php?id=<?=$_GET['id']?>"><button>수정</button></a>
-                <a href="delete.php"><button>삭제</button></a>
+                 <form action="process_update.php" method="POST">
+                    <p><input type="text" name="title" placeholder="title" value="<?=$article['title']?>"></p>
+                    <p><textarea name="description" 
+                    placeholder="description" value="<?=$article['description']?>"></textarea></p>
+                    <p><input type="submit"></p>
+                 </form>
             </div>
         </session>
 
