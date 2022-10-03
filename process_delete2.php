@@ -2,7 +2,7 @@
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     settype($_POST['id'], 'integer');
     $sql = "DELETE
-    FROM menu1
+    FROM menu2
     WHERE
         id = {$_POST['id']}
     ";

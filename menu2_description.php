@@ -1,15 +1,19 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    $sql = "SELECT * FROM menu1";
+    $sql = "SELECT * FROM menu2";
     $result = mysqli_query($conn, $sql);
-
-    $sql = "SELECT * FROM menu1 WHERE id={$_GET['id']}";
+    $list = '';
+    while($row = mysqli_fetch_array($result)) {
+        $list = $list."<li><a href=\"menu2_description.php?id={$row['id']}\">{$row['title']}</a></li>";
+}
+    $sql = "SELECT * FROM topics WHERE id={$_GET['id']}";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     $article = array(
         'title'=>$row['title'],
         'description'=>$row['description']
     );
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,13 +43,11 @@
                 </ul>
             </nav>
             <div class = "board">
-                 <form action="process_update.php" method="POST">
-                    <input type ="hidden" name="id" value="<?=$_GET['id']?>">
-                    <p><input type="text" name="title" placeholder="title" value="<?=$article['title']?>"></p>
-                    <p><textarea name="description" 
-                    placeholder="description" value="<?=$article['description']?>"></textarea></p>
-                    <p><input type="submit"></p>
-                 </form>
+                <h2><?=$article['title']?></h2>
+                <p><?=$article['description']?></p>
+                <a href="menu2.php"><button>목록</button></a>
+                <a href="update2.php?id=<?=$_GET['id']?>"><button>수정</button></a>
+                <a href="delete2.php?id=<?=$_GET['id']?>"><button>삭제</button></a>
             </div>
         </session>
 

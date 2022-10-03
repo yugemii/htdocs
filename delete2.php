@@ -1,16 +1,3 @@
-<?php
-    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    $sql = "SELECT * FROM menu1";
-    $result = mysqli_query($conn, $sql);
-
-    $sql = "SELECT * FROM menu1 WHERE id={$_GET['id']}";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-    $article = array(
-        'title'=>$row['title'],
-        'description'=>$row['description']
-    );
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,7 +18,7 @@
             </div>
         </header>
         <session id = "main">
-        <nav class = "menu">
+            <nav class = "menu">
                 <ul class="list">
                     <li><h2>메뉴</h2></li>
                     <li><a href="menu1.php">웹 해킹</a></li>
@@ -39,18 +26,16 @@
                 </ul>
             </nav>
             <div class = "board">
-                 <form action="process_update.php" method="POST">
+                 <form action="process_delete2.php" method="POST">
+                    <p>정말로 삭제하시겠습니까?</p>
                     <input type ="hidden" name="id" value="<?=$_GET['id']?>">
-                    <p><input type="text" name="title" placeholder="title" value="<?=$article['title']?>"></p>
-                    <p><textarea name="description" 
-                    placeholder="description" value="<?=$article['description']?>"></textarea></p>
-                    <p><input type="submit"></p>
+                    <p><input type="submit" value="delete"></p>
                  </form>
             </div>
         </session>
 
         <footer>
-            <address>광주광역시 동구 필문대로 309 조선대학교 컴퓨터공학과 재학</address>
+            <address>광주광역시 동구 필문대로</address>
         </footer>
 
     </body>

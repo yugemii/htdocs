@@ -21,11 +21,8 @@
             <nav class = "menu">
                 <ul class="list">
                     <li><h2>메뉴</h2></li>
-                    <li><a href="#">메뉴1</a></li>
-                    <li><a href="#">메뉴2</a></li>
-                    <li><a href="#">메뉴3</a></li>
-                    <li><a href="#">메뉴4</a></li>
-                    <li><a href="#">메뉴5</a></li>
+                    <li><a href="menu1.php">웹 해킹</a></li>
+                    <li><a href="menu2.php">시스템 해킹</a></li>
                 </ul>
             </nav>
             <div class = "board">

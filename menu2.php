@@ -35,7 +35,6 @@
                     <li><h2>메뉴</h2></li>
                     <li><a href="menu1.php">웹 해킹</a></li>
                     <li><a href="menu2.php">시스템 해킹</a></li>
-                    <li><a href="menu3.php">리버스 엔지니어링</a></li>
                 </ul>
             </nav>
             <div class = "board">
@@ -43,7 +42,7 @@
                     <li><h2>게시글 목록</h2></li>
                     <?=$list?>
                 </ol>
-                <a href="create.php"><button>글쓰기</button></a>
+                <a href="create2.php"><button>글쓰기</button></a>
             </div>
         </session>
 

@@ -13,7 +13,7 @@
         <header>
             <h1 class="site_name"><a href="index.php">환영해요, 보안의 숲</a></h1>
             <div class="right-top">
-                <a href="#"><button class="login">로그인</button></a>
+                <a href="login.html"><button class="login">로그인</button></a>
                 <a href="#"><button class="signup" href="/signup.html">회원가입</button></a>
             </div>
         </header>
@@ -23,7 +23,6 @@
                     <li><h2>메뉴</h2></li>
                     <li><a href="menu1.php">웹 해킹</a></li>
                     <li><a href="menu2.php">시스템 해킹</a></li>
-                    <li><a href="menu3.php">리버스 엔지니어링</a></li>
                 </ul>
             </nav>
             <div class = "board">
@@ -33,7 +32,6 @@
                 관리자 깃 허브 주소 : <a href="https://github.com/yugemii">https://github.com/yugemii</a>
                 관리자 티스토리 주소 : <a href="https://uksohun1.tistory.com">https://uksohun1.tistory.com</a>
                 
-                <a href="create.php"><button>글쓰기</button></a>
                 </pre>
             </div>
         </session>

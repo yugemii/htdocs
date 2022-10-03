@@ -1,7 +1,7 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     settype($_POST['id'], 'integer');
-    $sql = "UPDATE menu1
+    $sql = "UPDATE menu2
     SET 
         title = '{$_POST['title']}',
         description = '{$_POST['description']}'

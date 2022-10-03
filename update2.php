@@ -1,9 +1,9 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    $sql = "SELECT * FROM menu1";
+    $sql = "SELECT * FROM menu2";
     $result = mysqli_query($conn, $sql);
 
-    $sql = "SELECT * FROM menu1 WHERE id={$_GET['id']}";
+    $sql = "SELECT * FROM menu2 WHERE id={$_GET['id']}";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     $article = array(

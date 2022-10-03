@@ -1,9 +1,6 @@
-.login {
-    margin: 20px 0 0 0;
-}
-.login_console {
-    display : grid;
-    grid-template-columns : 100px 100px;
-}
-.signup {
-}
+h1 { margin-bottom: 20px; }
+
+#login_wrap .forgetpw { text-align: left; font-size: 14px;
+    margin: 0 0 10px 10px; cursor: pointer; }
+
+#login_wrap .forgetpw a, #login_wrap .regist_btn a { color: blue; }

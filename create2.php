@@ -1,16 +1,3 @@
-<?php
-    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    $sql = "SELECT * FROM menu1";
-    $result = mysqli_query($conn, $sql);
-
-    $sql = "SELECT * FROM menu1 WHERE id={$_GET['id']}";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-    $article = array(
-        'title'=>$row['title'],
-        'description'=>$row['description']
-    );
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,11 +26,10 @@
                 </ul>
             </nav>
             <div class = "board">
-                 <form action="process_update.php" method="POST">
-                    <input type ="hidden" name="id" value="<?=$_GET['id']?>">
-                    <p><input type="text" name="title" placeholder="title" value="<?=$article['title']?>"></p>
+                 <form action="process_create2.php" method="POST">
+                    <p><input type="text" name="title" placeholder="title"></p>
                     <p><textarea name="description" 
-                    placeholder="description" value="<?=$article['description']?>"></textarea></p>
+                    placeholder="description"></textarea></p>
                     <p><input type="submit"></p>
                  </form>
             </div>
