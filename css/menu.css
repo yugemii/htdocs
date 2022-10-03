@@ -1,0 +1,23 @@
+.board {
+    display: block;
+}
+
+.board > ol {
+    display : block;
+    height : 600px;
+}   
+
+.board > ol > li {
+    margin : 10px 0 0 0;
+    display : block;
+    padding : 5px;
+    border-style: double;
+}
+
+.board > ol > li > h2 {
+    text-align : center;
+}
+
+.board > button {
+    float : right;
+}

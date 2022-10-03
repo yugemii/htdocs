@@ -18,14 +18,12 @@
             </div>
         </header>
         <session id = "main">
-            <nav class = "menu">
+        <nav class = "menu">
                 <ul class="list">
                     <li><h2>메뉴</h2></li>
-                    <li><a href="#">메뉴1</a></li>
-                    <li><a href="#">메뉴2</a></li>
-                    <li><a href="#">메뉴3</a></li>
-                    <li><a href="#">메뉴4</a></li>
-                    <li><a href="#">메뉴5</a></li>
+                    <li><a href="menu1.php">웹 해킹</a></li>
+                    <li><a href="menu2.php">시스템 해킹</a></li>
+                    <li><a href="menu3.php">리버스 엔지니어링</a></li>
                 </ul>
             </nav>
             <div class = "board">
@@ -39,7 +37,7 @@
         </session>
 
         <footer>
-            <address>광주광역시 동구 필문대로</address>
+            <address>광주광역시 동구 필문대로 309 조선대학교 컴퓨터공학과 재학</address>
         </footer>
 
     </body>
