@@ -6,7 +6,7 @@
     while($row = mysqli_fetch_array($result)) {
         $list = $list."<li><a href=\"menu2_description.php?id={$row['id']}\">{$row['title']}</a></li>";
 }
-    $sql = "SELECT * FROM topics WHERE id={$_GET['id']}";
+    $sql = "SELECT * FROM menu2 WHERE id={$_GET['id']}";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     $article = array(

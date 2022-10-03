@@ -1,6 +1,6 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    $sql = "SELECT * FROM topics";
+    $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
     $list = '';
     while($row = mysqli_fetch_array($result)) {

@@ -1,13 +1,13 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    $sql = "SELECT * FROM topics";
+    $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
     $list = '';
     while($row = mysqli_fetch_array($result)) {
         $list = $list."<li><a href=\"menu1_description.php?id={$row['id']}\">{$row['title']}</a></li>";
         //<li><a href=\"menu1.php?id=1\"></a></li>
 }
-    $sql = "SELECT * FROM topics WHERE id={$_GET['id']}";
+    $sql = "SELECT * FROM menu1 WHERE id={$_GET['id']}";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     $article = array(
