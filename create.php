@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userid'])){
+        echo "안녕하세요.'.{$_SESSION['userid']}.'님";
+    }
+    if (!isset($_SESSION['userid'])){
+        header("location href='./login.php'");
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,14 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <h1 class="site_name"><a href="index.php">환영해요, 보안의 숲</a></h1>
-            <div class="right-top">
-                <a href="login.html"><button class="login">로그인</button></a>
-                <a href="signup"><button class="signup" href="/signup.html">회원가입</button></a>
-            </div>
-        </header>
-        <session id = "main">
+    <session id = "main">
         <nav class = "menu">
                 <ul class="list">
                     <li><h2>메뉴</h2></li>
@@ -34,7 +36,6 @@
                  </form>
             </div>
         </session>
-
         <footer>
             <address>광주광역시 동구 필문대로 309 조선대학교 컴퓨터공학과 재학</address>
         </footer>

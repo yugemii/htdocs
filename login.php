@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,38 +23,17 @@
                 </ul>
             </nav>
             <div class = "board">
-            <?php
-                session_start();
-
-                $conn = mysqli_connect('localhost', 'root', '990820', 'register');
-
-                $input_id=$_POST['id'];
-                $input_pw=$_POST['pw'];
-
-                //아이디가 있는지 검사하는 기능
-                $sql = "SELECT * FROM tb_user WHERE userid='$input_id'";
-                $result = $conn -> query($sql);
-
-                //아이디가 있으면 비밀번호를 검사함.
-                if(mysqli_num_rows($result) == 1){
-                    $row = mysqli_fetch_assoc($result);
-
-                    //비밀번호가 맞으면 세션을 생성함.
-                    if($row['userpw'] == $input_pw) {
-                        $_SESSION['userid']=$input_id;
-                        if(isset($_SESSION['userid'])){
-                            echo "로그인 성공!</br>";
-                            echo $_SESSION['userid']."님 환영합니다</br>";
-                        } else {
-                            echo "로그인 실패!";
-                        }
-                    } else {
-                        echo "로그인 정보가 잘못되었습니다.";
-                    }
-                } else {
-                    echo "로그인 정보가 잘못되었습니다.";
-                }
-            ?>
+                <div id="login_wrap">
+                    <div>
+                        <h1>로그인 페이지</h1>
+                        <form action="process_login.php" method="post" id="login_form">
+                            <p><input type="text" name="id" id="userid" placeholder="ID"></p>
+                            <p><input type="password" name="pw" id="userpw" placeholder="Password"></p>
+                            <p><input type="submit" value="Login" class="login_btn"></p>
+                        </form>
+                        <p class="regist_btn">회원이 아니신가요?&nbsp;<a href="register.html">회원가입</a></p>
+                    </div>
+                </div>
             </div>
         </session>
         <footer>
