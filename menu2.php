@@ -12,6 +12,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/board.css">
         <title>환영해요, 보안의 숲</title>
     </head>
     <body>
@@ -61,14 +62,5 @@
             <a href="create.php"><button>글쓰기</button></a>
         </div>
         </div>
-        <!-- <session id = "main">
-            <div class = "board">
-                <ol>
-                    <li><h2>게시글 목록</h2></li>
-                    <?=$list?>
-                </ol>
-                <a href="create2.php"><button>글쓰기</button></a>
-            </div>
-        </session> -->
     </body>
 </html>

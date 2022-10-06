@@ -1,6 +1,6 @@
 <?php
     include "lib.php";
-    settype($_POST['idx'], 'integer');
+    $bno = $_GET['idx'];
     $sql = "UPDATE menu1
     SET
         name = '{$_POST['name']}',
@@ -8,7 +8,7 @@
         content = '{$_POST['content']}',
         pw = '{$_POST['pw']}'
     WHERE
-        idx = {$_POST['idx']}
+        idx = $bno;
     ";
 
     $result = mysqli_query($conn, $sql);

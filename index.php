@@ -24,8 +24,8 @@
         관리자 티스토리 주소 : <a href="https://uksohun1.tistory.com">https://uksohun1.tistory.com</a>
 
         <a href="menu1.php"><button>웹 해킹 게시판</button></a>
+
         <a href="menu2.php"><button>시스템 해킹 게시판</button></a>
-        
         <div id="search_box">
         <form action="" method="get">
             <select name="catgo">

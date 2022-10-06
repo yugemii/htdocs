@@ -61,13 +61,5 @@
             <a href="create.php"><button>글쓰기</button></a>
         </div>
         </div>
-
-            <!-- <div class = "board">
-                <ol>
-                    <li><h2>게시글 목록</h2></li>
-                    <?=$list?>
-                </ol>
-                <a href="create.php"><button>글쓰기</button></a>
-            </div> -->
     </body>
 </html>

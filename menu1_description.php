@@ -6,19 +6,6 @@
     $fet = mysqli_query($conn, "update menu1 set hit = '".$hit."' where idx = '".$bno."'");
     $sql = mysqli_query($conn, "select * from menu1 where idx='".$bno."'"); /* 받아온 idx값을 선택 */
     $board = $sql->fetch_array();
-    // include "lib.php";
-    // $idx = $_GET['idx'];
-    // $sql = "SELECT * FROM menu1 WHERE idx={$_GET['idx']}";
-    // $result = mysqli_query($conn, $sql);
-    // $row = mysqli_fetch_array($result);
-    // $article = array(
-    //     'name'=>$row['name'],
-    //     'title'=>$row['title'],
-    //     'content'=>$row['content'],
-    //     'date'=>$row['date'],
-    //     'hit'=>$hit['hit']
-    // );
-    // $hit = $article['hit'] + 1;
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +13,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/board.css">
-        <title>이유경의 웹 사이트</title>
+        <title>환영해요, 유개미의 숲</title>
     </head>
     <body>
         <header>
@@ -51,20 +38,5 @@
                 <a href="update.php?idx=<?=$_GET['idx']?>"><button>수정</button></a>
                 <a href="delete.php?idx=<?=$_GET['idx']?>"><button>삭제</button></a>
         </div>
-        <!-- <session id = "main">
-            <div class = "board">
-                <h2><?=$article['title']?></h2>
-                <p><?=$article['content']?></p>
-
-                <a href="menu1.php"><button>목록</button></a>
-                <a href="update.php?idx=<?=$_GET['idx']?>"><button>수정</button></a>
-                <a href="delete.php?idx=<?=$_GET['idx']?>"><button>삭제</button></a>
-
-                <form action="process_comment" method="POST">
-                    <input type="text" name="comment">
-                    <input type="button" value="등록">
-                </form>
-            </div>
-        </session> -->
     </body>
 </html>

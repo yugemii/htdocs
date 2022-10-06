@@ -28,7 +28,7 @@
         <div id="board_write">
         <h1><a href="menu1.php">웹 해킹 게시판</a></h1>
             <div id="write_area">
-                <form action="process_update.php?idx=<?php echo $_GET['idx']; ?>" method="post">
+                <form action="process_update.php?idx=<?=$_GET['idx']?>" method="post">
                     <div id="in_title">
                         <textarea name="title" id="utitle" rows="1" cols="55" placeholder="제목" maxlength="100" required><?php echo $board['title']; ?></textarea>
                     </div>
