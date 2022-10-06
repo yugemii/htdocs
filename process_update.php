@@ -1,12 +1,14 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
-    settype($_POST['id'], 'integer');
+    include "lib.php";
+    settype($_POST['idx'], 'integer');
     $sql = "UPDATE menu1
-    SET 
+    SET
+        name = '{$_POST['name']}',
         title = '{$_POST['title']}',
-        description = '{$_POST['description']}'
+        content = '{$_POST['content']}',
+        pw = '{$_POST['pw']}'
     WHERE
-        id = {$_POST['id']}
+        idx = {$_POST['idx']}
     ";
 
     $result = mysqli_query($conn, $sql);

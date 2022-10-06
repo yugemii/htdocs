@@ -34,10 +34,10 @@
 #board_write {
 	width:900px;
 	position:relative;
-	margin:0 auto;
+	margin : 30px auto;
 }
 #write_area {
-	margin-top:70px;
+	margin-top:30px;
 	font-size:14px;}
 #in_name {
 	margin-top:10px;
@@ -84,3 +84,39 @@
 	width:100px;
 	height:30px;
 }
+
+/* 게시글 본문 */
+#board_read {
+	width : 900px;
+    margin : 0 auto;
+    position : relative;
+	word-break : break-all;
+}
+#user_info {
+	font-size:14px;
+}
+#user_info ul li {
+	float:left;
+	margin-left:10px;
+}
+#bo_line {
+	width:880px;
+	height:2px;
+	background: gray;
+	margin-top:20px;
+}
+#bo_content {
+	margin-top:20px;
+}
+#bo_ser {
+	font-size:14px;
+	color:#333;
+	position: absolute;
+	right: 0;
+}
+#bo_ser > ul > li {
+	float:left;
+	margin-left:10px;
+}
+
+/* 게시물 수정 */

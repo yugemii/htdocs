@@ -14,7 +14,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/board.css">
-        <title>이유경의 웹 사이트</title>
+        <title>환영해요, 보안의 숲</title>
     </head>
     <body>
         <div id="board_write">

@@ -1,13 +1,7 @@
 <?php
     include "lib.php";
-    // $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
-    $list = '';
-    while($row = mysqli_fetch_array($result)) {
-        $list = $list."<li><a href=\"menu1_description.php?id={$row['id']}\">{$row['title']}</a></li>";
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +49,7 @@
         <tbody>
             <tr>
             <td width="70"><?php echo $board['idx']; ?></td>
-            <td width="500"><a href=""><?php echo $title;?></a></td>
+            <td width="500"><a href="/menu1_description.php?idx=<?=$board["idx"]?>"><?=$title?></a></td>
             <td width="120"><?php echo $board['name']?></td>
             <td width="100"><?php echo $board['date']?></td>
             <td width="100"><?php echo $board['hit']; ?></td>
