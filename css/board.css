@@ -1,0 +1,86 @@
+/* 게시글 목록 */
+
+#board_area {
+	width : 900px;
+	position : relative;
+    margin : 0 auto;
+    padding : 20px 0 20px 0;
+}
+.list-table {
+	margin-top : 40px;
+}
+.list-table thead th{
+	height : 40px;
+	border-top : 2px solid #ffffff;
+	border-bottom : 1px solid #ffffff;
+	font-weight : bold;
+	font-size : 17px;
+}
+.list-table tbody td{
+	text-align : center;
+	padding : 10px 0;
+	border-bottom : 1px solid #ffffff; 
+    height : 20px;
+	font-size : 14px 
+}
+#write_btn {
+	position : absolute;
+	margin-top :20px;
+	right : 0;
+}
+
+/* 게시글 작성 */
+
+#board_write {
+	width:900px;
+	position:relative;
+	margin:0 auto;
+}
+#write_area {
+	margin-top:70px;
+	font-size:14px;}
+#in_name {
+	margin-top:10px;
+}
+#in_name textarea {
+	font-weight:bold;
+	font-size:26px;
+	width: 900px;
+	border:none;
+	resize: none;
+}
+#in_title {
+	margin-top:30px;
+}
+#in_title textarea {
+	font-weight:bold;
+	font-size:26px;
+	width: 900px;
+	border:none;
+	resize: none;
+}
+.wi_line {
+	margin-top:10px;
+}
+#in_content {
+	margin-top:10px;
+}
+#in_content textarea {
+	font:14px;
+	color:#333;
+	width: 900px;
+	height: 400px;
+	resize: none;
+}
+#in_pw input {
+	font:14px;
+	margin-top:10px;
+}
+.bt_se {
+	margin-top:20px;
+	text-align:center;
+}
+.bt_se button {
+	width:100px;
+	height:30px;
+}

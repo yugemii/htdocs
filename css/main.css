@@ -1,0 +1,52 @@
+* {
+    margin : 0 0 0 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+    background-color : #FFCACA;
+}
+
+#font_style {
+    font-family: 'Gugi', cursive;
+}
+
+a {
+    text-align : center;
+    color : black;
+    text-decoration-line : none;
+}
+
+li {
+    list-style: none;
+}
+
+/* 제목 */
+header {
+    width : auto;
+    height : 100px;
+    border-bottom-style : double;
+    border-color : #ffffff;
+}
+
+header > h1 {
+    text-align : center;
+    padding-top: 30px;
+}
+
+.button {
+    float : right;
+    padding : 0 50px 0 0;
+}
+
+/* 본문 */
+#main {
+    width : auto;
+    height : 800px;
+    text-align : center;
+    padding : 40px;
+}
+
+#search_box {
+    margin-top : 30px;
+}
