@@ -30,7 +30,7 @@
 			<div id="bo_line"></div>
 			</div>
             <div>
-            파일 : <a href="../upload/<?php echo $board['file'];?>" download><?php echo $board['file']; ?></a>
+            파일 : <a href="./upload/<?=$board['file']?>" download = "<?=$$board['file']?>"><?=$board['file']?></a>
             </div>
 			<div id="bo_content">
                 <?php echo $board['content'];?>

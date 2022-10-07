@@ -35,12 +35,12 @@
                 <div id="in_pw">
                 <input type="password" name="pw" id="upw"  placeholder="비밀번호" required />  
                 </div>
+                <div id="in_file">
+                <input type="file" value="1" name="upload_file">
+                </div>
                 <div class="bt_se">
                 <button type="submit">글 작성</button>
                 </div>
-                <!-- <p><input type="text" name="title" placeholder="title"></p>
-                <p><textarea name="description" placeholder="description"></textarea></p>
-                <p><input type="submit"></p> -->
             </form>
         </div>
         </div>

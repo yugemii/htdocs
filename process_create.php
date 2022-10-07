@@ -1,6 +1,13 @@
 <?php
     include "lib.php";
-    //보안적으로 모든 권한을 가지고 있는 관리자 계정으로 접속하기보다는 사용자 계정 접속 권장
+    
+    if($_FILES['upload_file'] != NULL){
+        $tmp_name = $_FILES['upload_file']['tmp_name'];
+        $name = $_FILES['upload_file']['name'];
+        $up = move_uploaded_file($tmp_name, "./upload/$name");
+        
+    }
+
     $sql = "INSERT INTO menu1
     (name, pw, title, content, date, file)
     VALUES(
@@ -9,14 +16,8 @@
     '{$_POST['title']}',
     '{$_POST['content']}',
     NOW(),
-    '{$_POST['file']}'
+    '$name'
     )";
-    //순수하게 사용자가 입력한 title, description 정보를 대입하면 공격 당할 수 있음. -> 필터링 기능 필요.
-    $tmpfile =  $_FILES['file']['tmp_name'];
-    $o_name = $_FILES['file']['name'];
-    $filename = iconv("UTF-8", "EUC-KR",$_FILES['file']['name']);
-    $folder = "../upload".$filename;
-    move_uploaded_file($tmpfile,$folder);
 
     $result = mysqli_query($conn, $sql);
 

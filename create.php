@@ -36,7 +36,7 @@
                 <input type="password" name="pw" id="upw"  placeholder="비밀번호" required />  
                 </div>
                 <div id="in_file">
-                <input type="file" value="1" name="file">
+                <input type="file" name="upload_file">
                 </div>
                 <div class="bt_se">
                 <button type="submit">글 작성</button>
