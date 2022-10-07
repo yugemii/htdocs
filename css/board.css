@@ -28,7 +28,17 @@
 	margin-top :20px;
 	right : 0;
 }
+.board_menu {
+	height : 300px;
+}
 
+.menu1_btn {
+	display : block;
+}
+
+.menu2_btn {
+	display : block;
+}
 /* 게시글 작성 */
 
 #board_write {
@@ -77,18 +87,27 @@
 	margin-top:10px;
 }
 .bt_se {
-	margin-top:20px;
-	text-align:center;
+	margin : 20px 0 20px 0;
+	text-align : center;
 }
 .bt_se button {
-	width:100px;
-	height:30px;
+	width : 100px;
+	height : 30px;
 }
 
+.bt_se_left {
+	margin : 20px 0 20px 0;
+	text-align : left;
+}
+
+.bt_se_left > button {
+	width : 100px;
+	height : 30px;
+}
 /* 게시글 본문 */
 #board_read {
 	width : 900px;
-    margin : 0 auto;
+    margin : 30px auto;
     position : relative;
 	word-break : break-all;
 }
@@ -103,10 +122,14 @@
 	width:880px;
 	height:2px;
 	background: gray;
-	margin-top:20px;
+	margin: 20px 0 20px 0;
 }
 #bo_content {
-	margin-top:20px;
+	margin : 20px 0 20px 0;
+	padding : 10px 0 10px 0;
+	width : 880px;
+	height : 700px;
+	background-color : #FFECEF;
 }
 #bo_ser {
 	font-size:14px;
@@ -115,8 +138,8 @@
 	right: 0;
 }
 #bo_ser > ul > li {
-	float:left;
-	margin-left:10px;
+	float : left;
+	margin-left : 10px;
 }
 
 /* 게시물 수정 */

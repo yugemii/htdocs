@@ -30,11 +30,10 @@
 			<div id="bo_line"></div>
 			</div>
             <div>
-            파일 : <a href="./upload/<?=$board['file']?>" download = "<?=$$board['file']?>"><?=$board['file']?></a>
+            <button>파일</button> <a href="./upload/<?=$board['file']?>" download = "<?=$$board['file']?>"><?=$board['file']?></a>
             </div>
 			<div id="bo_content">
                 <?php echo $board['content'];?>
-				<!-- <?php echo nl2br($board['content']); ?> -->
 			</div>
 	<!-- 목록, 수정, 삭제 -->
                 <a href="menu1.php"><button>목록</button></a>

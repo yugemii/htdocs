@@ -1,13 +1,12 @@
-<!-- <?
+<?php
     include "lib.php";
-
-    $isLogin = $_SESSION['isLogin'];
-    if(!$isLogin){
-        ?>
-        로그인 후 이용해주세요.</br>
-        <a href="login.php"><input type="button" value="로그인"></a>
-    <?}?> -->
-
+    if(isset($_SESSION['username']) == NULL){
+        echo "<script>
+        alert('로그인 후 이용해주세요.');
+        location.href='login.php';
+        </script>";
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,9 +40,6 @@
                 <div class="bt_se">
                 <button type="submit">글 작성</button>
                 </div>
-                <!-- <p><input type="text" name="title" placeholder="title"></p>
-                <p><textarea name="description" placeholder="description"></textarea></p>
-                <p><input type="submit"></p> -->
             </form>
         </div>
         </div>
