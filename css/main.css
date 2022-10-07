@@ -43,10 +43,6 @@ header > h1 {
 #main {
     width : auto;
     height : 800px;
-    text-align : center;
     padding : 40px;
-}
-
-#search_box {
-    margin-top : 20px;
+    text-align : center;
 }

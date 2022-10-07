@@ -29,8 +29,11 @@
 			<?php echo $board['name']; ?> <?php echo $board['date']; ?> 조회:<?php echo $board['hit']; ?>
 			<div id="bo_line"></div>
 			</div>
+            <div>
+            파일 : <a href="../upload/<?php echo $board['file'];?>" download><?php echo $board['file']; ?></a>
+            </div>
 			<div id="bo_content">
-                <?php echo $board['content']; ?>
+                <?php echo $board['content'];?>
 				<!-- <?php echo nl2br($board['content']); ?> -->
 			</div>
 	<!-- 목록, 수정, 삭제 -->

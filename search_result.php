@@ -13,6 +13,7 @@
 <div id="board_area"> 
 <?php
   /* 검색 변수 */
+  $menu_sel = $_GET['menu_sel'];
   $catagory = $_GET['catgo'];
   $search_con = $_GET['search'];
 ?>
@@ -29,28 +30,51 @@
             </tr>
         </thead>
         <?php
-            $sql2 = "select * from menu1 where $catagory like '%$search_con%' order by idx desc";
-            $row = mysqli_query($conn, $sql2);
-          while($board = $row->fetch_array()){
-            $bno=$board['idx'];
-            $title=$board["title"];
-            $name=$board['name'];
-            $date=$board['date'];
-            $hit=$board['hit'];
-            if(strlen($title)>30)
-              { 
-                $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
-              }
-            }?>
+            if($menu_sel==1) { //전체 게시판 검색 기능 구현 필요함.
+              $sql2 = "(select * from menu1 where $catagory like '%$search_con%')
+              UNION ALL (select * from menu2 where $catagory like '%$search_con%')";
+
+              $row = mysqli_query($conn, $sql2);
+
+              while($board = $row->fetch_array()){
+                $bno=$board['idx'];
+                $title=$board["title"];
+                $name=$board['name'];
+                $date=$board['date'];
+                $hit=$board['hit'];
+                if(strlen($title)>30)
+                  { 
+                    $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
+                  }
+            }
+            } else {
+              $sql1 = "select * from $menu_sel where $catagory like '%$search_con%' order by idx desc";
+              // $sql2 = "select * from menu2 where $catagory like '%$search_con%' order by idx desc";
+              $row = mysqli_query($conn, $sql1);
+              // $row2 = mysqli_query($conn, $sql2);
+    
+              while($board = $row->fetch_array()){
+                $bno=$board['idx'];
+                $title=$board["title"];
+                $name=$board['name'];
+                $date=$board['date'];
+                $hit=$board['hit'];
+                if(strlen($title)>30)
+                  { 
+                    $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
+                  }
+                }
+            }
+            ?>
       <tbody>
         <tr>
-        <td width="70"><?php echo $board['idx']; ?></td>
+        <td width="70"><?=$bno?></td>
         <td width="500">
-            <a href='menu1_description.php?idx=<?=$board["idx"]?>'><span style="background:yellow;"><?php echo $title;?></span></a>
+            <a href='<?=$menu_sel?>_description.php?idx=<?=$bno?>'><span style="background:#EFE66C;"><?=$title;?></span></a>
         </td>
-        <td width="120"><?=$board['name']?></td>
-        <td width="100"><?=$board['date']?></td>
-        <td width="100"><?=$board['hit']?></td>
+        <td width="120"><?=$name?></td>
+        <td width="100"><?=$date?></td>
+        <td width="100"><?=$hit?></td>
         </tr>
       </tbody>
     </table>

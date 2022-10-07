@@ -26,11 +26,15 @@
         <a href="menu1.php"><button>웹 해킹 게시판</button></a>
 
         <a href="menu2.php"><button>시스템 해킹 게시판</button></a>
+
         <div id="search_box">
         <form action="search_result.php" method="get">
+            <select name="menu_sel">
+                <option value="1">전체 게시판</option>
+                <option value="menu1">웹 해킹</option>
+                <option value="menu2">시스템 해킹</option>
+            </select>
             <select name="catgo">
-                <option name="menu1" value="title">웹 해킹</option>
-                <option name="menu2" value="title">시스템 해킹</option>
                 <option value="title">제목</option>
                 <option value="content">내용</option>
             </select>
