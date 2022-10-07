@@ -2,14 +2,13 @@
     include "lib.php";
     //보안적으로 모든 권한을 가지고 있는 관리자 계정으로 접속하기보다는 사용자 계정 접속 권장
     $sql = "INSERT INTO menu1
-    (name, pw, title, content, date, hit)
+    (name, pw, title, content, date)
     VALUES(
     '{$_POST['name']}',
     '{$_POST['password']}',
     '{$_POST['title']}',
     '{$_POST['content']}',
-    NOW(),
-    10
+    NOW()
     )";
     //순수하게 사용자가 입력한 title, description 정보를 대입하면 공격 당할 수 있음. -> 필터링 기능 필요.
 

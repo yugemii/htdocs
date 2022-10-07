@@ -35,8 +35,8 @@
 			</div>
 	<!-- 목록, 수정, 삭제 -->
                 <a href="menu2.php"><button>목록</button></a>
-                <a href="update.php?idx=<?=$_GET['idx']?>"><button>수정</button></a>
-                <a href="delete.php?idx=<?=$_GET['idx']?>"><button>삭제</button></a>
+                <a href="update2.php?idx=<?=$_GET['idx']?>"><button>수정</button></a>
+                <a href="delete2.php?idx=<?=$_GET['idx']?>"><button>삭제</button></a>
         </div>
     </body>
 </html>

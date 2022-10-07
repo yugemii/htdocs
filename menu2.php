@@ -3,9 +3,6 @@
     $sql = "SELECT * FROM menu2";
     $result = mysqli_query($conn, $sql);
     $list = '';
-    while($row = mysqli_fetch_array($result)) {
-        $list = $list."<li><a href=\"menu2_description.php?id={$row['id']}\">{$row['title']}</a></li>";
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,8 +21,8 @@
             </div>
         </header>
         <div id="board_area"> 
-        <h1>웹 해킹 게시판</h1>
-        <h4>환영해요, 웹 해킹의 숲</h4>
+        <h1>시스템 해킹 게시판</h1>
+        <h4>환영해요, 시스템 해킹의 숲</h4>
         <table class="list-table">
         <thead>
             <tr>
@@ -50,7 +47,7 @@
         <tbody>
             <tr>
             <td width="70"><?php echo $board['idx']; ?></td>
-            <td width="500"><a href=""><?php echo $title;?></a></td>
+            <td width="500"><a href="/menu2_description.php?idx=<?=$board['idx']?>"><?php echo $title;?></a></td>
             <td width="120"><?php echo $board['name']?></td>
             <td width="100"><?php echo $board['date']?></td>
             <td width="100"><?php echo $board['hit']; ?></td>
@@ -59,7 +56,7 @@
         <?php } ?>
         </table>
         <div id="write_btn">
-            <a href="create.php"><button>글쓰기</button></a>
+            <a href="create2.php"><button>글쓰기</button></a>
         </div>
         </div>
     </body>
