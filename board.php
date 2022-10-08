@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    include "lib.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,18 +23,18 @@
         <div class="board_menu">
             <a href="menu1.php" class="menu1_btn">웹 해킹 게시판</a>
             <a href="menu2.php" class="menu2_btn">시스템 해킹 게시판</a>
-            <a href="verify_email.php" class="menu2_btn">이메일 인증하기</a>
+            <a href="email.php" class="menu2_btn">이메일 인증하기</a>
         </div>
         <div id="search_box">
-        <form action="search_result.php" method="get">
+        <form action="process_search.php" method="get">
             <select name="menu_sel">
-                <option value="1">전체 게시판</option>
                 <option value="menu1">웹 해킹</option>
                 <option value="menu2">시스템 해킹</option>
             </select>
             <select name="catgo">
                 <option value="title">제목</option>
                 <option value="content">내용</option>
+                <option value="all">제목+내용</option>
             </select>
             <input type="text" name="search" size="40" required="required"><button>검색</button>
         </form>

@@ -37,11 +37,12 @@
             <th width="120">글쓴이</th>
             <th width="100">작성일</th>
             <th width="100">조회수</th>
+            <th width="100">추천수</th>
             </tr>
         </thead>
             <?php
             // board테이블에서 idx를 기준으로 내림차순해서 5개까지 표시
-            $sql = "select * from menu1 order by idx desc limit 0,10"; 
+            $sql = "select * from menu1 order by idx desc limit 0,10";
             $result = mysqli_query($conn, $sql);
             while($board = $result->fetch_array())
             {
@@ -59,7 +60,8 @@
             <td width="500"><a href="/menu1_description.php?idx=<?=$board["idx"]?>"><?=$title?></a></td>
             <td width="120"><?php echo $board['name']?></td>
             <td width="100"><?php echo $board['date']?></td>
-            <td width="100"><?php echo $board['hit']; ?></td>
+            <td width="100"><?php echo $board['hit']?></td>
+            <td width="100"><?php echo $board['likes_count']?></td>
             </tr>
         </tbody>
         <?php } ?>

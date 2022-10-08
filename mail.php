@@ -1,10 +1,34 @@
-<!-- <?
-    include('src/Exception.php');
-    include('src/PHPMailer.php');
-    include('src/SMTP.php');
+<?php
+include('class.phpmailer.php');
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
+$mail = new PHPMailer(true); //객체 생성함.
+$mail->IsSMTP(); //smtp 방식으로 사용할 것을 알려줌.
+
+try {
+  $mail->Host       = "smtp.gmail.com";
+  $mail->SMTPDebug  = 2;//0~5, 0:no debug
+  $mail->SMTPAuth   = true; //smtp 인증 사용
+  $mail->Port       = 465;//cafe24 Port 587
+  $mail->SMTPSecure = "ssl";
+  $mail->Username   = "uksohun1@gmail.com";
+  $mail->Password   = "knj160346125!";
+  $mail->AddAddress('study070@naver.com', 'test');
+  $mail->SetFrom('uksohun1@gmail.com', 'test'); // 이메일 보내는 사람에 기록됨.
+  $mail->AddReplyTo('uksohun1@gmail.com', 'test'); //받은 사람이 답장했을 때 자동 기입
+  $mail->Subject = 'PHPMailer Test Subject';
+  $mail->MsgHTML('Body message !');
+  //$mail->MsgHTML(file_get_contents('contents.html'));
+  $mail->AddAttachment('ryan.jpg');
+
+  $mail->Send();
+  echo "Message Sent OK</p>\n";
+} catch (phpmailerException $e) {
+  echo $e->errorMessage();
+} catch (Exception $e) {
+  echo $e->getMessage();
+}
+?>
+<!-- <?
 
     include "lib.php";
 

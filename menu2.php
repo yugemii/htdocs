@@ -1,10 +1,10 @@
 <?php
     include "lib.php";
-    include "already_verify.php";
-    if($verify == false){
-        echo "<script>alert('이메일 인증을 해주세요!');
-        location.href='board.php';</script>";
-    }
+    // include "already_verify.php";
+    // if($verify == false){
+    //     echo "<script>alert('이메일 인증을 해주세요!');
+    //     location.href='board.php';</script>";
+    // }
     $sql = "SELECT * FROM menu2";
     $result = mysqli_query($conn, $sql);
 ?>
