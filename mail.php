@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include('class.phpmailer.php');
 
 $mail = new PHPMailer(true); //객체 생성함.
@@ -96,4 +96,4 @@ try {
     </div>
 </div>
 </body>
-</html>
+</html> -->

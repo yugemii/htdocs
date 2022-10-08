@@ -17,6 +17,10 @@
     $sql = mysqli_query($conn, "select * from menu1 where idx='".$bno."'"); /* 받아온 idx값을 선택 */
     $board = $sql->fetch_array();
     }
+
+    $comment_sql = "SELECT * FROM comment WHERE idx=$bno";
+    $res = mysqli_query($conn, $comment_sql);
+    $data = $res->fetch_array();
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +30,6 @@
         <link rel="stylesheet" href="css/board.css">
         <title>환영해요, 유개미의 숲</title>
     </head>
-    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
     <body>
         <header>
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
@@ -34,7 +37,7 @@
         <div id="board_read">
         <h2><?=$board['title']?></h2>
             <div id="user_info">
-			<?=$board['name']?> <?=$board['date']?> 조회:<?=$board['hit']?>
+			<?=$board['name']?> <?=$board['date']?> 조회수: <?=$board['hit']?> 추천수:<?=$board['likes_count']?>
 			<div id="bo_line"></div>
 			</div>
             <div>
@@ -43,31 +46,31 @@
 			<div id="bo_content">
                 <?=$board['content']?>
 			</div>
-            <!--likes_count는 현재 게시글의 id로 구분해서 가져오고, likes는 현재 게시글을 보고 있는 (로그인 한) 사용자로 구분해서 가져와야 한다.-->
-            <?php
-                $menu1_uid = $_SESSION['username'];
-                $likes_sql = "SELECT * FROM menu1_up where idx='$bno' AND uid='$menu1_uid'";
-                $likes_result = mysqli_query($conn, $sql);
-                $likes_row = mysqli_fetch_array($result);
-            ?>
-            <?php
-                if($likes_row){     
-            ?>
-                <div class = "likes">
-                <a href = 'likes.php?idx=<?=$bno?>&heart=0&uid=<?=$menu1_uid?>'><i class="fas fa-heart red fa-2x"></i></a>
-                <span class = "likes_count"><?=$board['likes_count']?></span>
-                </div>
-            <?php
-            } else{?>      
-                <div class = "likes">
-                <a href = 'likes.php?idx=<?=$bno?>&heart=1&uid=<?=$menu1_uid?>'><i class="far fa-heart white fa-2x"></i></a>
-                <span class = "likes_count"><?=$board['likes_count']?></span>
-                </div>
-            <?php }?>
-	<!-- 목록, 수정, 삭제 -->
+                <a href="process_up.php?idx='<?=$bno?>'$likes='1'"><button>추천</button></a>
                 <a href="menu1.php"><button>목록</button></a>
                 <a href="update.php?idx='<?=$bno?>'"><button>수정</button></a>
                 <a href="delete.php?idx='<?=$bno?>'"><button>삭제</button></a>
+        </div>
+
+        <div class="comment_view">
+            <h3>댓글목록</h3>
+                <?php
+                    $comment_sql = mysqli_query($conn, "select * from comment where idx='".$bno."' order by idx desc");
+                    while($reply = $comment_sql->fetch_array()){ 
+                ?>
+                <ul class="comment_list">
+                    <li><?=$reply['comment']?> 작성자 : <?=$reply['uid']?></li>
+                </ul>
+        <?php } ?>
+
+        <div class="dap_ins">
+            <form action="process_comment.php?idx=<?php echo $bno; ?>" method="post">
+                <div style="margin-top:10px; ">
+                    <textarea name="comment" rows="5" cols="55" placeholder="댓글을 입력하세요." maxlength="300" required></textarea>
+                    <button type="submit">등록</button>
+                </div>
+            </form>
+            </div>
         </div>
     </body>
 </html>

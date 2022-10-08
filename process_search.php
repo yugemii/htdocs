@@ -12,12 +12,12 @@
 <body>
 <div id="board_area"> 
 <?php
-  /* 검색 변수 */
-  $menu_sel = $_GET['menu_sel'];
-  $catagory = $_GET['catgo'];
-  $search_con = $_GET['search'];
+    //검색 변수 초기화.
+    $menu_sel = $_GET['menu_sel'];
+    $catgo = $_GET['catgo'];
+    $search = $_GET['search'];
 ?>
-  <h1><?=$catagory?>에서 '<?=$search_con?>'검색결과</h1>
+  <h1><?=$catgo?>에서 '<?=$search?>'검색결과</h1>
 
   <h4 style="margin-top:30px;"><a href="index.php">홈으로</a></h4>
 
@@ -33,56 +33,52 @@
             </tr>
         </thead>
         <?php
-            if($catagory != 'title' && $catagory != 'content') {
-              $sql2 = "select * from $menu_sel where name like '%$search_con%'
-              OR content like '%$search_con%' order by idx desc";
-              $result = mysqli_query($conn, $sql2);
-              $row = mysqli_fetch_array($result);
-
-              while($row){
-                $bno=$row['idx'];
-                $title=$row["title"];
-                $name=$row['name'];
-                $date=$row['date'];
-                $hit=$row['hit'];
-                $likes_count=$row['likes_count'];
-                if(strlen($title)>30)
-                  { 
-                    $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
-                  } //제목의 길이 조절해주는 역할.
-              }
-            } else {
-              //제목 or 내용을 검색할 때 공통적인 것.
-              $sql1 = "select * from $menu_sel where $catagory like '%$search_con%' order by idx desc";
-              $result = mysqli_query($conn, $sql1);
-              $row = mysqli_fetch_array($result);
-
-              while($row){
-                $bno=$row['idx'];
-                $title=$row["title"];
-                $name=$row['name'];
-                $date=$row['date'];
-                $hit=$row['hit'];
-                $likes_count=$row['likes_count'];
-                if(strlen($title)>30)
-                  { 
-                    $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
-                  }
-                }
+        if($catgo == "all"){
+            $sql = "SELECT * FROM $menu_sel WHERE (name like '%$search%') or (content like '%$search%') order by idx desc";
+            $result = mysqli_query($conn, $sql);
+            while($board = $result->fetch_array())
+            {
+            $title = $board["title"]; 
+            if(strlen($title)>30)
+            { 
+                $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
             }
-            ?>
-      <tbody>
-        <tr>
-        <td width="70"><?=$bno?></td>
-        <td width="500">
-            <a href='<?=$menu_sel?>_description.php?idx=<?=$bno?>'><span style="background:#EFE66C;"><?=$title;?></span></a>
-        </td>
-        <td width="120"><?=$name?></td>
-        <td width="100"><?=$date?></td>
-        <td width="100"><?=$hit?></td>
-        <td width="100"><?=$likes_count?></td>
-        </tr>
-      </tbody>
+          ?>
+        <tbody>
+            <tr>
+            <td width="70"><?php echo $board['idx']; ?></td>
+            <td width="500"><a href="<?=$menu_sel?>_description.php?idx=<?=$board["idx"]?>"><?=$title?></a></td>
+            <td width="120"><?php echo $board['name']?></td>
+            <td width="100"><?php echo $board['date']?></td>
+            <td width="100"><?php echo $board['hit']?></td>
+            <td width="100"><?php echo $board['likes_count']?></td>
+            </tr>
+        </tbody>
+        <?php } 
+      }
+      ?>
+        <?php
+            $sql = "SELECT * FROM $menu_sel WHERE $catgo like '%$search%' order by idx desc";
+            $result = mysqli_query($conn, $sql);
+            while($board = $result->fetch_array())
+            {
+            $title = $board["title"]; 
+            if(strlen($title)>30)
+            { 
+                $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
+            }
+          ?>
+        <tbody>
+            <tr>
+            <td width="70"><?php echo $board['idx']; ?></td>
+            <td width="500"><a href="<?=$menu_sel?>_description.php?idx=<?=$board["idx"]?>"><?=$title?></a></td>
+            <td width="120"><?php echo $board['name']?></td>
+            <td width="100"><?php echo $board['date']?></td>
+            <td width="100"><?php echo $board['hit']?></td>
+            <td width="100"><?php echo $board['likes_count']?></td>
+            </tr>
+        </tbody>
+        <?php } ?>
     </table>
 
     <div id="search_box2">
@@ -94,7 +90,7 @@
             <select name="catgo">
                 <option value="title">제목</option>
                 <option value="content">내용</option>
-                <option value="all">제목+내용</option>
+                <option value="all">제목 + 내용</option>
             </select>
             <input type="text" name="search" size="40" required="required"><button>검색</button>
         </form>

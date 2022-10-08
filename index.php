@@ -11,10 +11,6 @@
     <body>
         <header>
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
-            <!-- <div class="button">
-                <a href="login.php"><button>로그인</button></a>
-                <a href="signup.php"><button>회원가입</button></a>
-            </div> -->
         </header>
         <session id = "main">
         <pre>

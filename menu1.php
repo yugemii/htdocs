@@ -1,16 +1,5 @@
 <?php
     include "lib.php";
-    // $username = $_SESSION['username'];
-    // $sql = "SELECT * FROM users uid='$username' AND active='1'";
-    // $result = mysqli_query($conn, $sql);
-    // $row = mysqli_fetch_array($result);
-    // if($row){
-    //     $sql = "SELECT * FROM menu1";
-    //     $result = mysqli_query($conn, $sql);
-    // } else {
-    //     echo "<script>alert('이메일 인증을 해주세요!');
-    //     location.href='board.php';</script>";
-    // }
     $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
 ?>

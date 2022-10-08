@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     // include "already_verify.php";
     include "lib.php";
     include "class.phpmailer.php";
@@ -40,4 +40,4 @@
       echo $e->getMessage();
     }
 
-?>
+?> -->

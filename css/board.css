@@ -167,6 +167,13 @@
 	margin-left : 10px;
 }
 
+.comment_view {
+	width : 600px;
+	margin : 20px auto;
+}
+.comment_list li {
+	color : blueviolet;
+}
 /* 게시물 수정 */
 
 /* 게시물 검색 */
