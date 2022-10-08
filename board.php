@@ -21,8 +21,9 @@
     </header>
     <session id="main">
         <div class="board_menu">
-            <a href="menu1.php"><button class="menu1_btn">웹 해킹 게시판</button></a>
-            <a href="menu2.php"><button class="menu2_btn">시스템 해킹 게시판</button></a>
+            <a href="menu1.php" class="menu1_btn">웹 해킹 게시판</a>
+            <a href="menu2.php" class="menu2_btn">시스템 해킹 게시판</a>
+            <a href="verify_email.php" class="menu2_btn">이메일 인증하기</a>
         </div>
         <div id="search_box">
         <form action="search_result.php" method="get">

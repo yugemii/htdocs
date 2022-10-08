@@ -20,10 +20,6 @@
     <body>
         <header>
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
-            <div class="button">
-                <button>로그인</button>
-                <button>회원가입</button>
-            </div>
         </header>
         <div id="board_write">
         <h1><a href="menu1.php">웹 해킹 게시판</a></h1>

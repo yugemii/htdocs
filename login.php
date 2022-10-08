@@ -15,39 +15,31 @@
     
     if(isset($row)){
          $db_pwd = $row['pwd'];
+         $useremail = $row['email'];
          if(password_verify($password, $db_pwd)) {
+            // $search = mysqli_query($conn, "SELECT * FROM users WHERE uid='".$username."' AND pwd='".$password."' AND active='1'"); 
+            // $match  = mysqli_fetch_array($search);
             session_start();
             $_SESSION['username'] = $username;
+            $_SESSION['useremail'] = $useremail;
             echo "<script>location.href='board.php';</script>";
+            // if($match > 0){
+            //     session_start();
+            //     $_SESSION['username'] = $username;
+            //     echo "<script>location.href='board.php';</script>";
+            // }else{
+            //     echo '<script>alert("계정이 활성화되지 않았습니다. 이메일 인증을 진행해주세요.");
+            //     location.href="login.php";</script>';
+            // }
+            // session_start();
+            // $_SESSION['username'] = $username;
+            // echo "<script>location.href='board.php';</script>";
          } else {
             $wp = 1;
          }
     } else {
        $wu = 1;
     }
-
-    // if ( $username ) {
-    //     $sql = "select * from users where uid='".$username."' ";
-    //     $result = mysqli_query($conn, $sql);
-    //     $row = mysqli_fetch_array($result);
-
-    //     while( $row ) {
-    //         $hash_password = $row['pwd'];
-    //     }
-    //     if ( !$hash_password ) {
-    //         $wu = 1;
-    //     } else {
-    //         if ( password_verify($password, $hash_password) ) {
-    //             session_start();
-    //             $_SESSION['username'] = $username;
-    //             echo "<script>location.href='board.php';</script>";
-    //         } else {
-    //             $wp = 1;
-    //         }
-    //     }
-    // }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

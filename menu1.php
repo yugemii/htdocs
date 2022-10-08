@@ -1,5 +1,16 @@
 <?php
     include "lib.php";
+    // $username = $_SESSION['username'];
+    // $sql = "SELECT * FROM users uid='$username' AND active='1'";
+    // $result = mysqli_query($conn, $sql);
+    // $row = mysqli_fetch_array($result);
+    // if($row){
+    //     $sql = "SELECT * FROM menu1";
+    //     $result = mysqli_query($conn, $sql);
+    // } else {
+    //     echo "<script>alert('이메일 인증을 해주세요!');
+    //     location.href='board.php';</script>";
+    // }
     $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
 ?>
@@ -14,10 +25,6 @@
     <body>
         <header>
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
-            <div class="button">
-                <button>로그인</button>
-                <button>회원가입</button>
-            </div>
         </header>
         <div id="board_area"> 
         <h1>웹 해킹 게시판</h1>

@@ -1,11 +1,22 @@
 <?php
     include "lib.php";
     $bno = $_GET['idx']; /* bno함수에 idx값을 받아와 넣음*/
-    $hit = mysqli_fetch_array(mysqli_query($conn, "select * from menu1 where idx ='".$bno."'"));
-    $hit = $hit['hit'] + 1;
-    $fet = mysqli_query($conn, "update menu1 set hit = '".$hit."' where idx = '".$bno."'");
+    $is_count = false;
+    if(!isset($_COOKIE["menu1_{$bno}"])){
+        setcookie("menu1_{$bno}", $bno, time() + 60 * 60 );
+        $is_count = true;
+    } else {
+        $sql = "select * from menu1 where idx='$bno'";
+        $result = mysqli_query($conn, $sql);
+        $board = $result->fetch_array();
+    }
+
+    if($is_count){
+    $sql = "UPDATE menu1 SET hit = hit + 1 WHERE idx = '$bno'";
+    $result = mysqli_query($conn, $sql);
     $sql = mysqli_query($conn, "select * from menu1 where idx='".$bno."'"); /* 받아온 idx값을 선택 */
     $board = $sql->fetch_array();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,13 +26,10 @@
         <link rel="stylesheet" href="css/board.css">
         <title>환영해요, 유개미의 숲</title>
     </head>
+    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
     <body>
         <header>
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
-            <div class="button">
-                <button>로그인</button>
-                <button>회원가입</button>
-            </div>
         </header>
         <div id="board_read">
         <h2><?php echo $board['title']; ?></h2>
@@ -30,7 +38,7 @@
 			<div id="bo_line"></div>
 			</div>
             <div>
-            <button>파일</button> <a href="./upload/<?=$board['file']?>" download = "<?=$$board['file']?>"><?=$board['file']?></a>
+            <button>파일</button> <a href="./upload/<?=$board['file']?>" download = "<?=$board['file']?>"><?=$board['file']?></a>
             </div>
 			<div id="bo_content">
                 <?php echo $board['content'];?>
