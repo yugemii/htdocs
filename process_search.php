@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <?php
-            if($catagory == 'all') {
+            if($catagory != 'title' && $catagory != 'content') {
               $sql2 = "select * from $menu_sel where name like '%$search_con%'
               OR content like '%$search_con%' order by idx desc";
               $result = mysqli_query($conn, $sql2);

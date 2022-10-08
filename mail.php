@@ -10,8 +10,8 @@ try {
   $mail->SMTPAuth   = true; //smtp 인증 사용
   $mail->Port       = 465;//cafe24 Port 587
   $mail->SMTPSecure = "ssl";
-  $mail->Username   = "uksohun1@gmail.com";
-  $mail->Password   = "knj160346125!";
+  $mail->Username   = "";
+  $mail->Password   = "";
   $mail->AddAddress('study070@naver.com', 'test');
   $mail->SetFrom('uksohun1@gmail.com', 'test'); // 이메일 보내는 사람에 기록됨.
   $mail->AddReplyTo('uksohun1@gmail.com', 'test'); //받은 사람이 답장했을 때 자동 기입
