@@ -1,8 +1,9 @@
 <?php
-    include "lib.php";
-    $bno = $_GET['idx']; /* bno함수에 idx값을 받아와 넣음*/
-    $heart = $_GET['heart'];
-    if ($heart){
-        $likes_count = "UPDATE menu1 SET likes_count = likes_count + 1 WHERE idx='$bno'";
-    }
+	include "lib.php";
+	$bno = $_GET['idx'];
+    $query = "SELECT * FROM menu1 WHERE idx=$bno";
+    $likes = "UPDATE menu1 SET likes_count = likes_count + 1 WHERE idx=$bno";
+    $conn->query($likes);
 ?>
+    <script type="text/javascript">alert("게시글을 추천했습니다.");</script>
+    <meta http-equiv="refresh" content="0 url=./menu1.php">

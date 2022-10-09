@@ -1,6 +1,5 @@
 <?php
     include "already_login.php";
-    include "lib.php";
 
     if ( $login ) {
         header('Location: board.php');
@@ -65,7 +64,7 @@
                 <button type="submit">로그인</button>
             </div>
         </form>
-        <a href="register.php">회원이 아니신가요?</a>
+        <a href="register.php">회원이 아니신가요?</a><br>
         <?php 
                 if ( $wu == 1 ){
                     echo "<p style='color:red;'>아이디가 입력되지 않았거나 아이디가 존재하지 않습니다.</p>";

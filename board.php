@@ -23,7 +23,7 @@
         <div class="board_menu">
             <a href="menu1.php" class="menu1_btn">웹 해킹 게시판</a>
             <a href="menu2.php" class="menu2_btn">시스템 해킹 게시판</a>
-            <a href="email.php" class="menu2_btn">이메일 인증하기</a>
+            <a href="process_verify.php?uid=<?=$_SESSION['username']?>" class="menu2_btn">이메일 인증하기</a>
         </div>
         <div id="search_box">
         <form action="process_search.php" method="get">
