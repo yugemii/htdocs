@@ -51,17 +51,15 @@
         <div class="comment_view">
             <h3>댓글목록</h3>
                 <?php
-                    //댓글 목록 불러오기.
-                    $comment_sql = mysqli_query($conn, "select * from comment where idx='".$bno."' order by idx desc");
+                    $comment_sql = mysqli_query($conn, "select * from comment1 where idx='".$bno."' order by idx desc");
                     while($reply = $comment_sql->fetch_array()){ 
                 ?>
                 <ul class="comment_list">
                     <li><?=$reply['comment']?> 작성자 : <?=$reply['uid']?></li>
                 </ul>
         <?php } ?>
-        <!-- 댓글 입력하는 곳 -->
         <div class="dap_ins">
-            <form action="process_comment.php?idx=<?=$bno?>" method="post">
+            <form action="process_comment1.php?idx=<?=$bno?>" method="post">
                 <div style="margin-top:10px; ">
                     <textarea name="comment" rows="5" cols="55" placeholder="댓글을 입력하세요." maxlength="300" required></textarea>
                     <button type="submit">등록</button>

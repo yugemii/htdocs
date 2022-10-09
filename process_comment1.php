@@ -5,7 +5,7 @@
     $comment = $_POST['comment'];
 
     if($bno!=NULL && $comment_uid!=NULL && $comment!=NULL) {
-        $sql = "INSERT INTO comment (idx, uid, comment) VALUES ('".$bno."', '".$comment_uid."', '".$comment."');";
+        $sql = "INSERT INTO comment1 (idx, uid, comment) VALUES ('".$bno."', '".$comment_uid."', '".$comment."');";
         $result = mysqli_query($conn, $sql);
         echo "<script>alert('댓글이 작성되었습니다.'); 
         location.href='menu1_description.php?idx=$bno';</script>";

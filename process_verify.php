@@ -77,7 +77,7 @@ if (!$mail->send()) {
     $query = "SELECT * FROM users WHERE uid=$uid";
     $sql = "UPDATE users SET active='1'";
     $conn -> query($sql);
-    echo '<script>alert("메일 인증이 완료되었습니다.");
+    echo '<script>alert("메일 인증이 완료되었습니다. 메일함을 확인해주세요.");
     location.href="board.php";</script>';
     //Section 2: IMAP
     //Uncomment these to save your message in the 'Sent Mail' folder.

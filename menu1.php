@@ -1,5 +1,6 @@
 <?php
-    include "lib,php";
+    session_start();
+    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
 ?>
@@ -31,7 +32,7 @@
         </thead>
             <?php
             // board테이블에서 idx를 기준으로 내림차순해서 5개까지 표시
-            $sql = "select * from menu1 order by idx desc limit 0,10";
+            $sql = "SELECT * FROM menu1 ORDER BY idx DESC LIMIT 0,10";
             $result = mysqli_query($conn, $sql);
             while($board = $result->fetch_array())
             {
@@ -45,12 +46,12 @@
             ?>
         <tbody>
             <tr>
-            <td width="70"><?php echo $board['idx']; ?></td>
+            <td width="70"><?=$board['idx']?></td>
             <td width="500"><a href="/menu1_description.php?idx=<?=$board["idx"]?>"><?=$title?></a></td>
-            <td width="120"><?php echo $board['name']?></td>
-            <td width="100"><?php echo $board['date']?></td>
-            <td width="100"><?php echo $board['hit']?></td>
-            <td width="100"><?php echo $board['likes_count']?></td>
+            <td width="120"><?=$board['name']?></td>
+            <td width="100"><?=$board['date']?></td>
+            <td width="100"><?=$board['hit']?></td>
+            <td width="100"><?=$board['likes_count']?></td>
             </tr>
         </tbody>
         <?php } ?>

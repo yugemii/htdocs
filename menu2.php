@@ -1,14 +1,6 @@
 <?php
-    include "lib,php";
-    $uid = $_SESSION('username');
-    $search = mysqli_query($conn, "SELECT * FROM users WHERE uid=$uid AND active='1'");
-    // $match  = mysqli_fetch_array($search);
-    // if($match > 0){
-    //     echo "<script>location.href='menu1.php';</script>";
-    // }else{
-    //     echo '<script>alert("계정이 활성화되지 않았습니다. 이메일 인증을 진행해주세요.");
-    //     location.href="board.php";</script>';
-    // }
+    session_start();
+    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     $sql = "SELECT * FROM menu2";
     $result = mysqli_query($conn, $sql);
 ?>
@@ -18,15 +10,15 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/board.css">
-        <title>환영해요, 보안의 숲</title>
+        <title>환영해요, 유개미의 숲</title>
     </head>
     <body>
         <header>
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
         </header>
         <div id="board_area"> 
-        <h1>웹 해킹 게시판</h1>
-        <h4>환영해요, 웹 해킹의 숲</h4>
+        <h1>시스템 해킹 게시판</h1>
+        <h4>환영해요, 시스템 해킹의 숲</h4>
         <table class="list-table">
         <thead>
             <tr>
@@ -40,7 +32,7 @@
         </thead>
             <?php
             // board테이블에서 idx를 기준으로 내림차순해서 5개까지 표시
-            $sql = "select * from menu2 order by idx desc limit 0,10";
+            $sql = "SELECT * FROM menu2 ORDER BY idx DESC LIMIT 0,10";
             $result = mysqli_query($conn, $sql);
             while($board = $result->fetch_array())
             {
@@ -54,18 +46,18 @@
             ?>
         <tbody>
             <tr>
-            <td width="70"><?php echo $board['idx']; ?></td>
+            <td width="70"><?=$board['idx']?></td>
             <td width="500"><a href="/menu2_description.php?idx=<?=$board["idx"]?>"><?=$title?></a></td>
-            <td width="120"><?php echo $board['name']?></td>
-            <td width="100"><?php echo $board['date']?></td>
-            <td width="100"><?php echo $board['hit']?></td>
-            <td width="100"><?php echo $board['likes_count']?></td>
+            <td width="120"><?=$board['name']?></td>
+            <td width="100"><?=$board['date']?></td>
+            <td width="100"><?=$board['hit']?></td>
+            <td width="100"><?=$board['likes_count']?></td>
             </tr>
         </tbody>
         <?php } ?>
         </table>
         <div id="write_btn">
-            <a href="create.php"><button>글쓰기</button></a>
+            <a href="create2.php"><button>글쓰기</button></a>
         </div>
         </div>
     </body>

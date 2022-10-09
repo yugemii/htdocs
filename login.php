@@ -7,6 +7,7 @@
     $username = $_POST['uid'];
     $password = $_POST['pwd'];
 
+    $conn = mysqli_connect('localhost', 'root', '990820', 'web');
     $sql = "SELECT * FROM users WHERE uid='$username'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -15,14 +16,16 @@
          $db_pwd = $row['pwd'];
          $useremail = $row['email'];
          if(password_verify($password, $db_pwd)) {
-            $search = mysqli_query($conn, "SELECT * FROM users WHERE uid='".$username."' AND pwd='".$password."' AND active='1'"); 
+            $search = mysqli_query($conn, "SELECT * FROM users WHERE active='1'"); 
             $match  = mysqli_fetch_array($search);
-            if($match==true){
+            if($match > 0){
                 session_start();
                 $_SESSION['username'] = $username;
                 $_SESSION['useremail'] = $useremail;
-                echo "<script>location.href='board.php';</script>";
-            }else{
+                echo "<script>
+                alert('로그인이 완료되었습니다.');
+                location.href='board.php';</script>";
+            } else {
                 session_start();
                 $_SESSION['username'] = $username;
                 $_SESSION['useremail'] = $useremail;
@@ -30,6 +33,7 @@
                 alert("계정이 활성화되지 않았습니다. 이메일 인증을 진행해주세요.");
                 location.href="verify_email.php";</script>';
             }
+
          } else {
             $wp = 1;
          }

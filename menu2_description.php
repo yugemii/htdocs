@@ -42,7 +42,7 @@
 			<div id="bo_content">
                 <?=$board['content']?>
 			</div>
-                <button onclick="location.href='process_up.php?idx=<?=$bno?>'">추천하기</button>
+                <button onclick="location.href='process_up2.php?idx=<?=$bno?>'">추천하기</button>
                 <a href="menu2.php"><button>목록</button></a>
                 <a href="update.php?idx='<?=$bno?>'"><button>수정</button></a>
                 <a href="delete.php?idx='<?=$bno?>'"><button>삭제</button></a>
@@ -52,7 +52,7 @@
             <h3>댓글목록</h3>
                 <?php
                     //댓글 목록 불러오기.
-                    $comment_sql = mysqli_query($conn, "select * from comment where idx='".$bno."' order by idx desc");
+                    $comment_sql = mysqli_query($conn, "select * from comment2 where idx='".$bno."' order by idx desc");
                     while($reply = $comment_sql->fetch_array()){ 
                 ?>
                 <ul class="comment_list">
@@ -61,7 +61,7 @@
         <?php } ?>
         <!-- 댓글 입력하는 곳 -->
         <div class="dap_ins">
-            <form action="process_comment.php?idx=<?=$bno?>" method="post">
+            <form action="process_comment2.php?idx=<?=$bno?>" method="post">
                 <div style="margin-top:10px; ">
                     <textarea name="comment" rows="5" cols="55" placeholder="댓글을 입력하세요." maxlength="300" required></textarea>
                     <button type="submit">등록</button>
