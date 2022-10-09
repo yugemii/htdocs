@@ -1,5 +1,5 @@
 <?php
-    include "lib.php";
+    include "lib,php";
     $sql = "SELECT * FROM menu1";
     $result = mysqli_query($conn, $sql);
 ?>
@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/board.css">
-        <title>환영해요, 보안의 숲</title>
+        <title>환영해요, 유개미의 숲</title>
     </head>
     <body>
         <header>

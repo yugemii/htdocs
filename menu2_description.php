@@ -1,11 +1,22 @@
 <?php
     include "lib.php";
     $bno = $_GET['idx']; /* bno함수에 idx값을 받아와 넣음*/
-    $hit = mysqli_fetch_array(mysqli_query($conn, "select * from menu2 where idx ='".$bno."'"));
-    $hit = $hit['hit'] + 1;
-    $fet = mysqli_query($conn, "update menu2 set hit = '".$hit."' where idx = '".$bno."'");
+    $is_count = false;
+    if(!isset($_COOKIE["menu2_{$bno}"])){
+        setcookie("menu2_{$bno}", $bno, time() + 60 * 60 );
+        $is_count = true;
+    } else {
+        $sql = "select * from menu2 where idx='$bno'";
+        $result = mysqli_query($conn, $sql);
+        $board = $result->fetch_array();
+    }
+    //방문자 조회수 무한 F5 방지 - 쿠키값 이용함.
+    if($is_count){
+    $sql = "UPDATE menu2 SET hit = hit + 1 WHERE idx = '$bno'";
+    $result = mysqli_query($conn, $sql);
     $sql = mysqli_query($conn, "select * from menu2 where idx='".$bno."'"); /* 받아온 idx값을 선택 */
     $board = $sql->fetch_array();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,22 +31,43 @@
             <h1><a href="index.php">환영해요, 보안의 숲</a></h1>
         </header>
         <div id="board_read">
-        <h2><?php echo $board['title']; ?></h2>
+        <h2><?=$board['title']?></h2>
             <div id="user_info">
-			<?php echo $board['name']; ?> <?php echo $board['date']; ?> 조회:<?php echo $board['hit']; ?>
+			<?=$board['name']?> <?=$board['date']?> 조회수: <?=$board['hit']?> 추천수:<?=$board['likes_count']?>
 			<div id="bo_line"></div>
 			</div>
             <div>
-            파일 : <a href="./upload/<?=$board['file']?>" download = "<?=$$board['file']?>"><?=$board['file']?></a>
+            <button>파일</button> <a href="./upload/<?=$board['file']?>" download = "<?=$board['file']?>"><?=$board['file']?></a>
             </div>
 			<div id="bo_content">
-                <?php echo $board['content']; ?>
-				<!-- <?php echo nl2br($board['content']); ?> -->
+                <?=$board['content']?>
 			</div>
-	<!-- 목록, 수정, 삭제 -->
+                <button onclick="location.href='process_up.php?idx=<?=$bno?>'">추천하기</button>
                 <a href="menu2.php"><button>목록</button></a>
-                <a href="update2.php?idx=<?=$_GET['idx']?>"><button>수정</button></a>
-                <a href="delete2.php?idx=<?=$_GET['idx']?>"><button>삭제</button></a>
+                <a href="update.php?idx='<?=$bno?>'"><button>수정</button></a>
+                <a href="delete.php?idx='<?=$bno?>'"><button>삭제</button></a>
+            </div>
+
+        <div class="comment_view">
+            <h3>댓글목록</h3>
+                <?php
+                    //댓글 목록 불러오기.
+                    $comment_sql = mysqli_query($conn, "select * from comment where idx='".$bno."' order by idx desc");
+                    while($reply = $comment_sql->fetch_array()){ 
+                ?>
+                <ul class="comment_list">
+                    <li><?=$reply['comment']?> 작성자 : <?=$reply['uid']?></li>
+                </ul>
+        <?php } ?>
+        <!-- 댓글 입력하는 곳 -->
+        <div class="dap_ins">
+            <form action="process_comment.php?idx=<?=$bno?>" method="post">
+                <div style="margin-top:10px; ">
+                    <textarea name="comment" rows="5" cols="55" placeholder="댓글을 입력하세요." maxlength="300" required></textarea>
+                    <button type="submit">등록</button>
+                </div>
+            </form>
+            </div>
         </div>
     </body>
 </html>

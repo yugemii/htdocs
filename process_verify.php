@@ -6,11 +6,9 @@
  * example to see how to use XOAUTH2.
  * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
  */
-
- 
+include "lib.php";
 include "PHPMailer.php";
 include "SMTP.php"; 
-
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer();
@@ -22,7 +20,7 @@ $mail->isSMTP();
 // SMTP::DEBUG_OFF = off (for production use)
 // SMTP::DEBUG_CLIENT = client messages
 // SMTP::DEBUG_SERVER = client and server messages
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+$mail->SMTPDebug = SMTP::DEBUG_OFF;
 
 //Set the hostname of the mail server
 $mail->Host = 'smtp.naver.com';
@@ -55,15 +53,15 @@ $mail->setFrom('study070@naver.com', '이유경');
 $mail->addReplyTo('study070@naver.com', '이유경');
 
 //Set who the message is to be sent to
-$mail->addAddress('uksohun1@gmail.com', '이유경');
+$mail->addAddress($_SESSION["useremail"], $_SESSION["username"]);
 
 //Set the subject line
 $mail->Subject = '메일 테스트입니다. ';
 
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML("가입해주셔서 감사합니다. 게시판을 이용하실 수 있습니다.
-<a href='http://117.16.17.186:9879/board.php'>http://117.16.17.186:9879/board.php</a>");
+$mail->msgHTML("가입해주셔서 감사합니다. 아래 링크를 눌러서 이용하세요.
+<a href='http://117.16.17.186:9879/index.php'>http://117.16.17.186:9879/index.php</a>");
 
 //Replace the plain text body with one created manually
 $mail->AltBody = '내용이 정상적으로 전송되지 않았습니다.';
@@ -75,12 +73,12 @@ $mail->AltBody = '내용이 정상적으로 전송되지 않았습니다.';
 if (!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    include "lib.php";
     $uid = $_GET['uid'];
     $query = "SELECT * FROM users WHERE uid=$uid";
-    $sql = "UPDATE users SET active='1' WHERE uid=$uid";
+    $sql = "UPDATE users SET active='1'";
     $conn -> query($sql);
-    echo 'Message sent!';
+    echo '<script>alert("메일 인증이 완료되었습니다.");
+    location.href="board.php";</script>';
     //Section 2: IMAP
     //Uncomment these to save your message in the 'Sent Mail' folder.
     #if (save_mail($mail)) {

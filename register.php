@@ -3,8 +3,8 @@
     $username = $_POST['userid'];
     $password = $_POST['userpw'];
     $password_confirm = $_POST['confirm_pwd'];
-    // 이메일 인증
     $email = $_POST['email'];
+
     $hash = md5( rand(0,1000) );
     $ptn = "'/^[a-zA-Z]{1}[a-zA-Z0-9.\-_]+@[a-z0-9]{1}[a-z0-9\-]+[a-z0-9]{1}\.(([a-z]{1}[a-z.]+[a-z]{1})|([a-z]+))$/'"; //정규표현식
     
@@ -29,7 +29,7 @@
             // $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
             // $add_user = "INSERT INTO users (uid, pwd, email, hash) VALUES ('$username', '$hashed_pwd', '$email', '$hash')";
             // mysqli_query($conn, $add_user);
-            echo "<script>alert('회원가입이 완료되었습니다. 로그인 후 이메일 인증을 해주세요.');
+            echo "<script>alert('회원가입이 완료되었습니다. 다시 로그인하여 이메일 인증을 해주세요.');
             location.href='login.php';</script>";
             }
     }
