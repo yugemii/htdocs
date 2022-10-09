@@ -15,8 +15,9 @@
     if(isset($row)){
          $db_pwd = $row['pwd'];
          $useremail = $row['email'];
+         $userhash = $row['hash'];
          if(password_verify($password, $db_pwd)) {
-            $search = mysqli_query($conn, "SELECT * FROM users WHERE active='1'"); 
+            $search = mysqli_query($conn, "SELECT * FROM users WHERE uid='$username' AND pwd='$password' AND active='1'"); 
             $match  = mysqli_fetch_array($search);
             if($match > 0){
                 session_start();
@@ -29,6 +30,7 @@
                 session_start();
                 $_SESSION['username'] = $username;
                 $_SESSION['useremail'] = $useremail;
+                $_SESSION['userhash'] = $userhash;
                 echo '<script>
                 alert("계정이 활성화되지 않았습니다. 이메일 인증을 진행해주세요.");
                 location.href="verify_email.php";</script>';

@@ -25,14 +25,11 @@
                 </div>
                 <div class="wi_line"></div>
                 <div id="in_name">
-                <textarea name="name" id="uname" rows="1" cols="55" placeholder="글쓴이" maxlength="100" required></textarea>
+                작성자 : <?=$_SESSION['username']?>
                 </div>
                 <div class="wi_line"></div>
                 <div id="in_content">
                 <textarea name="content" id="ucontent" placeholder="내용" required></textarea>
-                </div>
-                <div id="in_pw">
-                <input type="password" name="pw" id="upw"  placeholder="비밀번호" required />  
                 </div>
                 <div id="in_file">
                 <input type="file" name="upload_file">

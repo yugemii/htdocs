@@ -23,7 +23,7 @@
             $wp = 1;
         } else {
             $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
-            $add_user = "INSERT INTO users (uid, pwd, email, hash) VALUES ('$username', '$hashed_pwd', '$email', '$hash')";
+            $add_user = "INSERT INTO users (uid, pwd, email, hash, active) VALUES ('$username', '$hashed_pwd', '$email', '$hash', '0')";
             mysqli_query($conn, $add_user);
             // include "mail.php?email='.$email.'&hash='.$hash.'";           
             // $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);

@@ -60,9 +60,7 @@ $mail->Subject = '메일 테스트입니다. ';
 
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML("가입해주셔서 감사합니다. 아래 링크를 눌러서 이용하세요.
-<a href='http://117.16.17.186:9879/index.php'>http://117.16.17.186:9879/index.php</a>");
-
+$mail->msgHTML("Email verify! http://117.16.17.186:9879/verify.php?email=".$_SESSION['useremail']."&hash=".$_SESSION['userhash']);
 //Replace the plain text body with one created manually
 $mail->AltBody = '내용이 정상적으로 전송되지 않았습니다.';
 
@@ -73,12 +71,13 @@ $mail->AltBody = '내용이 정상적으로 전송되지 않았습니다.';
 if (!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    $uid = $_GET['uid'];
-    $query = "SELECT * FROM users WHERE uid=$uid";
-    $sql = "UPDATE users SET active='1'";
-    $conn -> query($sql);
-    echo '<script>alert("메일 인증이 완료되었습니다. 메일함을 확인해주세요.");
-    location.href="board.php";</script>';
+    echo "메일이 정상적으로 전송되었습니다. 메일함을 확인해주세요.";
+    // $uid = $_GET['uid'];
+    // $query = "SELECT * FROM users WHERE uid=$uid";
+    // $sql = "UPDATE users SET active='1'";
+    // $conn -> query($sql);
+    // echo '<script>alert("메일 인증이 완료되었습니다. 메일함을 확인해주세요.");
+    // location.href="board.php";</script>';
     //Section 2: IMAP
     //Uncomment these to save your message in the 'Sent Mail' folder.
     #if (save_mail($mail)) {

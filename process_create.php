@@ -9,10 +9,9 @@
     }
 
     $sql = "INSERT INTO menu1
-    (name, pw, title, content, date, file)
+    (name, title, content, date, file)
     VALUES(
-    '{$_POST['name']}',
-    '{$_POST['password']}',
+    '{$_SESSION['username']}',
     '{$_POST['title']}',
     '{$_POST['content']}',
     NOW(),
